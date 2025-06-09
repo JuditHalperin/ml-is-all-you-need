@@ -1,4 +1,4 @@
-# 🧠 ML is All You Need
+# ML is All You Need
 
 ## 📚 Paper Index
 

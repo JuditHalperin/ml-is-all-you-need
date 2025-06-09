@@ -83,7 +83,7 @@ def create_paper_md(paper, folder="papers"):
 def ensure_readme_structure(readme_path="README.md"):
     if not os.path.exists(readme_path):
         with open(readme_path, "w") as f:
-            f.write("# 🧠 ML is All You Need\n\n")
+            f.write("# ML is All You Need\n\n")
             f.write("## 📚 Paper Index\n\n")
             f.write(README_HEADER)
     else:
