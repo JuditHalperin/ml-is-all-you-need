@@ -29,20 +29,49 @@ def create_paper_md(paper, folder="papers"):
     os.makedirs(folder, exist_ok=True)
     slug = sanitize_filename(paper['title'])
     filepath = os.path.join(folder, f"{slug}.md")
+
+    # Check if file already exists and grab existing summary
+    existing_summary = ""
+    if os.path.exists(filepath):
+        with open(filepath, "r") as f:
+            content = f.read()
+        match = re.search(r"## 🧠 Summary\s*\n(.+?)(?:\n## |\Z)", content, re.DOTALL)
+        if match:
+            existing_summary = match.group(1).strip()
+
+    # Check if a matching image exists in assets/figures/
+    image_formats = [".png", ".jpg", ".jpeg", ".webp", ".gif"]
+    image_path = next(
+        (f"../assets/figures/{slug}{ext}" for ext in image_formats if os.path.exists(f"assets/figures/{slug}{ext}")),
+        None
+    )
+
     with open(filepath, "w") as f:
         f.write(f"# {paper['title']}\n\n")
         if paper.get('year'):
             f.write(f"**Year:** {paper['year']}\n\n")
         if paper['publisher']:
-            f.write(f"**Published at:** {paper['publisher']}\n\n")
+            f.write(f"**Published by:** {paper['publisher']}\n\n")
         if paper['source']:
             f.write(f"**Paper:** [{get_source_name(paper['source'])}]({paper['source']})\n\n")
         if paper['code']:
             f.write(f"**Code:** [{get_source_name(paper['code'])}]({paper['code']})\n\n")
-        f.write("## 🧠 Summary\n(Add a brief summary here)\n\n")
+
+        # Summary section
+        f.write("## 🧠 Summary\n")
+        if existing_summary and "Add a brief summary here" not in existing_summary:
+            f.write(existing_summary + "\n\n")
+        else:
+            f.write("(Add a brief summary here)\n\n")
+
+        # If image exists, include it
+        if image_path:
+            f.write(f"![Figure]({image_path})\n\n")
+
         f.write("## 🏷️ Topics\n")
         f.write(", ".join(f"`{t}`" for t in paper['topics']))
         f.write("\n")
+
     return slug
 
 
@@ -61,13 +90,14 @@ def ensure_readme_structure(readme_path="README.md"):
                 f.write(README_HEADER)
 
 def add_to_readme(paper, slug, readme_path="README.md"):
-    row = "| [{0}](papers/{1}.md) | {2} | {3} | {4} | {5} |\n".format(
+    row = "| [{0}](papers/{1}.md) | {2} | {3} | {4} | {5} | {6}\n".format(
         paper['title'],
         slug,
-        f"[{get_source_name(paper['source'])}]({paper['source']})" if paper['source'] else "-",
-        f"[{get_source_name(paper['code'])}]({paper['code']})" if paper['code'] else "-",
-        paper['publisher'] if paper['publisher'] else "-",
-        paper['year'] if paper.get('year') else "-"
+        f"[{get_source_name(paper['source'])}]({paper['source']})" if paper.get('source') else "-",
+        f"[{get_source_name(paper['code'])}]({paper['code']})" if paper.get('code') else "-",
+        paper.get('publisher', "-") or "-",
+        paper.get('year', "-") or "-",
+        ", ".join(f"`{t}`" for t in paper.get('topics', [])) if paper.get('topics') else "-"
     )
 
     with open(readme_path, "r") as f:
@@ -80,18 +110,22 @@ def add_to_readme(paper, slug, readme_path="README.md"):
             lines[i] = row
             was_updated = True
             break
-    else:
+
+    if not was_updated:
+        # Find table start and insert
         for i, line in enumerate(lines):
-            if line.strip().startswith("|") and "---" in lines[i+1]:
+            if line.strip().startswith("|") and "---" in lines[i + 1]:
                 lines.insert(i + 2, row)
                 break
         else:
+            # fallback append
             lines.append(row)
 
     with open(readme_path, "w") as f:
         f.writelines(lines)
 
     return "updated" if was_updated else "added"
+
 
 def delete_paper(title, papers_folder="papers", readme_path="README.md"):
     slug = sanitize_filename(title)
@@ -126,12 +160,12 @@ def delete_paper(title, papers_folder="papers", readme_path="README.md"):
 def main():
     parser = argparse.ArgumentParser(description="Add or delete an ML paper summary entry.")
     parser.add_argument("--title", required=True, help="Title of the paper")
-    parser.add_argument("--year", type=int, help="Year of publication (optional)")
+    parser.add_argument("--year", type=int, help="Year of publication")
 
-    parser.add_argument("--source", help="URL to the paper (e.g., arXiv link)")
-    parser.add_argument("--code", default="", help="URL to the code repo (optional)")
-    parser.add_argument("--publisher", default="", help="Conference or journal (optional)")
-    parser.add_argument("--topics", help="Comma-separated list of topics (optional)")
+    parser.add_argument("--source", help="URL to the paper")
+    parser.add_argument("--code", default="", help="URL to the code repo")
+    parser.add_argument("--publisher", default="", help="Company or university that published the paper")
+    parser.add_argument("--topics", nargs='*', help="List of topics")
 
     parser.add_argument("--delete", action="store_true", help="Delete the paper by title and year")
 
@@ -147,13 +181,11 @@ def main():
         "code": args.code.strip(),
         "publisher": args.publisher.strip(),
         "year": args.year,
-        "topics": [t.strip() for t in args.topics.split(",")] if args.topics else []
+        "topics": args.topics if args.topics else []
     }
 
     ensure_readme_structure()
     slug = create_paper_md(paper)
-    add_to_readme(paper, slug)
-
     status = add_to_readme(paper, slug)
     print(f"✅ {status.capitalize()}: {paper['title']}\n→ papers/{slug}.md")
 
