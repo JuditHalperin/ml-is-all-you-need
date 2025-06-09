@@ -1,5 +1,6 @@
 import os
 import re
+import shutil
 import argparse
 from urllib.parse import urlparse
 
@@ -9,8 +10,12 @@ README_HEADER = (
     "|-------|-------|------|-----------|------|--------|\n"
 )
 
+image_formats = [".png", ".jpg", ".jpeg", ".webp", ".gif"]
+
+
 def sanitize_filename(title):
     return re.sub(r'[^a-zA-Z0-9]+', '-', title.lower()).strip('-')
+
 
 def get_source_name(url):
     if not url:
@@ -25,6 +30,7 @@ def get_source_name(url):
     else:
         return hostname.replace("www.", "").split('.')[0].capitalize()
     
+
 def create_paper_md(paper, folder="papers"):
     os.makedirs(folder, exist_ok=True)
     slug = sanitize_filename(paper['title'])
@@ -40,7 +46,6 @@ def create_paper_md(paper, folder="papers"):
             existing_summary = match.group(1).strip()
 
     # Check if a matching image exists in assets/figures/
-    image_formats = [".png", ".jpg", ".jpeg", ".webp", ".gif"]
     image_path = next(
         (f"../assets/figures/{slug}{ext}" for ext in image_formats if os.path.exists(f"assets/figures/{slug}{ext}")),
         None
@@ -89,10 +94,11 @@ def ensure_readme_structure(readme_path="README.md"):
                 f.write("\n## 📚 Paper Index\n\n")
                 f.write(README_HEADER)
 
-def add_to_readme(paper, slug, readme_path="README.md"):
+
+def add_to_readme(paper, readme_path="README.md"):
     row = "| [{0}](papers/{1}.md) | {2} | {3} | {4} | {5} | {6}\n".format(
         paper['title'],
-        slug,
+        sanitize_filename(paper['title']),
         f"[{get_source_name(paper['source'])}]({paper['source']})" if paper.get('source') else "-",
         f"[{get_source_name(paper['code'])}]({paper['code']})" if paper.get('code') else "-",
         paper.get('publisher', "-") or "-",
@@ -157,17 +163,28 @@ def delete_paper(title, papers_folder="papers", readme_path="README.md"):
         print(f"⚠️ Entry not found in {readme_path}")
 
 
+def copy_image(image_path, title):
+    ext = os.path.splitext(image_path)[1].lower()
+    if ext not in image_formats:
+        print(f"⚠️ Unsupported image format: {ext}")
+        return
+    slug = sanitize_filename(title)
+    os.makedirs("assets/figures", exist_ok=True)
+    dst_path = f"assets/figures/{slug}{ext}"
+    shutil.copyfile(image_path, dst_path)
+    print(f"🖼️ Copied image to: {dst_path}")
+
+
 def main():
     parser = argparse.ArgumentParser(description="Add or delete an ML paper summary entry.")
-    parser.add_argument("--title", required=True, help="Title of the paper")
-    parser.add_argument("--year", type=int, help="Year of publication")
-
-    parser.add_argument("--source", help="URL to the paper")
-    parser.add_argument("--code", default="", help="URL to the code repo")
-    parser.add_argument("--publisher", default="", help="Company or university that published the paper")
-    parser.add_argument("--topics", nargs='*', help="List of topics")
-
-    parser.add_argument("--delete", action="store_true", help="Delete the paper by title and year")
+    parser.add_argument("--title", '-t', required=True, help="Title of the paper")
+    parser.add_argument("--year", '-y', type=int, help="Year of publication")
+    parser.add_argument("--source", '-s', help="URL to the paper")
+    parser.add_argument("--code", '-c', help="URL to the code repo")
+    parser.add_argument("--publisher", '-p', help="Company or university that published the paper")
+    parser.add_argument("--topics", '-l', nargs='*', help="List of topics")
+    parser.add_argument("--image", '-i', help="Path to figure")
+    parser.add_argument("--delete", '-d', action="store_true", help="Delete the paper by title")
 
     args = parser.parse_args()
 
@@ -175,18 +192,21 @@ def main():
         delete_paper(args.title.strip())
         return
 
+    if args.image:
+        copy_image(args.image.strip(), args.title.strip())
+        
     paper = {
         "title": args.title.strip(),
         "source": args.source.strip() if args.source else "",
-        "code": args.code.strip(),
-        "publisher": args.publisher.strip(),
-        "year": args.year,
+        "code": args.code.strip() if args.code else "",
+        "publisher": args.publisher.strip() if args.publisher else "",
+        "year": args.year if args.year else None,
         "topics": args.topics if args.topics else []
     }
 
     ensure_readme_structure()
     slug = create_paper_md(paper)
-    status = add_to_readme(paper, slug)
+    status = add_to_readme(paper)
     print(f"✅ {status.capitalize()}: {paper['title']}\n→ papers/{slug}.md")
 
 
