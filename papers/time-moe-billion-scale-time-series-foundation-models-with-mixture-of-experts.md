@@ -13,7 +13,7 @@ TIME-MoE is a time series forecasting foundation model family that leverages a s
 
 Interestingly, in different domains, different experts are used across layers.
 
-![Figure](../assets/figures/time-moe-billion-scale-time-series-foundation-models-with-mixture-of-experts.png)
+![Figure](../figures/time-moe-billion-scale-time-series-foundation-models-with-mixture-of-experts.png)
 
 ## 🏷️ Topics
 `FM`, `MoE`

@@ -45,9 +45,8 @@ def create_paper_md(paper, folder="papers"):
         if match:
             existing_summary = match.group(1).strip()
 
-    # Check if a matching image exists in assets/figures/
     image_path = next(
-        (f"../assets/figures/{slug}{ext}" for ext in image_formats if os.path.exists(f"assets/figures/{slug}{ext}")),
+        (f"../figures/{slug}{ext}" for ext in image_formats if os.path.exists(f"figures/{slug}{ext}")),
         None
     )
 
@@ -169,8 +168,8 @@ def copy_image(image_path, title):
         print(f"⚠️ Unsupported image format: {ext}")
         return
     slug = sanitize_filename(title)
-    os.makedirs("assets/figures", exist_ok=True)
-    dst_path = f"assets/figures/{slug}{ext}"
+    os.makedirs("figures", exist_ok=True)
+    dst_path = f"figures/{slug}{ext}"
     shutil.copyfile(image_path, dst_path)
     print(f"🖼️ Copied image to: {dst_path}")
 

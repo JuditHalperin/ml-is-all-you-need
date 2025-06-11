@@ -23,7 +23,7 @@ Note: only normal data are used at training.
 * Graph structure can be used to learn relationships between features
 * Normalization of anomaly score per feature
 
-![Figure](../assets/figures/gdn-graph-neural-network-based-anomaly-detection-in-multivariate-time-series.png)
+![Figure](../figures/gdn-graph-neural-network-based-anomaly-detection-in-multivariate-time-series.png)
 
 ## 🏷️ Topics
 `Anomaly`
