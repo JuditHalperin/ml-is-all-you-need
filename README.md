@@ -4,6 +4,7 @@
 
 | Title | Paper | Code | Publisher | Year | Topics |
 |-------|-------|------|-----------|------|--------|
+| [GDN: Graph Neural Network-Based Anomaly Detection in Multivariate Time Series](papers/gdn-graph-neural-network-based-anomaly-detection-in-multivariate-time-series.md) | [arXiv](https://arxiv.org/pdf/2106.06947) | [GitHub](https://github.com/d-ailin/GDN) | - | 2021 | `Anomaly`
 | [Time-MoE: Billion-Scale Time Series Foundation Models with Mixture of Experts](papers/time-moe-billion-scale-time-series-foundation-models-with-mixture-of-experts.md) | [arXiv](https://arxiv.org/pdf/2409.16040) | [GitHub](https://github.com/Time-MoE/Time-MoE) | - | 2025 | `FM`, `MoE`
 | [TimesFM: A decoder-only foundation model for time-series forecasting](papers/timesfm-a-decoder-only-foundation-model-for-time-series-forecasting.md) | [arXiv](https://arxiv.org/pdf/2310.10688) | - | Google | 2024 | `FM`
 | [Aurora: A foundation model for the Earth system](papers/aurora-a-foundation-model-for-the-earth-system.md) | [Nature](https://www.nature.com/articles/s41586-025-09005-y) | [GitHub](https://github.com/microsoft/aurora) | Microsoft | 2025 | `FM`
