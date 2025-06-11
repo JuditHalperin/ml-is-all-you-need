@@ -6,7 +6,7 @@
 
 **Code:** [GitHub](https://github.com/d-ailin/GDN)
 
-## 🧠 Summary
+## ✏️ Summary
 Forecasting-based unsupervised multivariate time series anomaly detection using graph structure and attention. Graph structure is useful to learn relationships between features.
 
 **Architecture:**

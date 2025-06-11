@@ -4,7 +4,7 @@
 
 **Paper:** [arXiv](https://arxiv.org/pdf/2310.08278)
 
-## 🧠 Summary
+## ✏️ Summary
 Foundation model for univariate probabilistic time series forecasting using a decoder-only transformer-based architecture.
 
 **Preprocessing:** robust scaling of windows.

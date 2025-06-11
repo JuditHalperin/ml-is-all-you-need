@@ -8,7 +8,7 @@
 
 **Code:** [GitHub](https://github.com/microsoft/aurora)
 
-## 🧠 Summary
+## ✏️ Summary
 The model consists of three main components:
 
 - **Encoder**: Converts heterogeneous weather inputs into a 3D latent representation across height, latitude, and longitude. Static inputs are included as additional surface-level variables. The encoder also adds Fourier-based encodings.

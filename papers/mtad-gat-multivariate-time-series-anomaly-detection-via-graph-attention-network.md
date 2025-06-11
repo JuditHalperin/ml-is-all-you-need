@@ -6,7 +6,7 @@
 
 **Code:** [GitHub](https://github.com/ML4ITS/mtad-gat-pytorch)
 
-## 🧠 Summary
+## ✏️ Summary
 **Preprocessing:**
 - Normalization
 - Cleaning using univariate Spectral Residual
