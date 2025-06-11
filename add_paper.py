@@ -69,7 +69,7 @@ def create_paper_md(paper, folder="papers"):
             f.write("(Add a brief summary here)\n\n")
 
         # If image exists, include it
-        if image_path:
+        if image_path and (not existing_summary or "![Figure]" not in existing_summary):
             f.write(f"![Figure]({image_path})\n\n")
 
         f.write("## 🏷️ Topics\n")
@@ -130,6 +130,49 @@ def add_to_readme(paper, readme_path="README.md"):
         f.writelines(lines)
 
     return "updated" if was_updated else "added"
+
+
+def sort_readme_by_year(readme_path="README.md"):
+    with open(readme_path, "r") as f:
+        lines = f.readlines()
+
+    header_idx = None
+    for i, line in enumerate(lines):
+        if line.startswith("| Title |"):
+            header_idx = i
+            break
+
+    if header_idx is None:
+        return
+
+    # Extract table rows
+    table_header = lines[header_idx]
+    separator = lines[header_idx + 1]
+    rows = []
+    for line in lines[header_idx + 2:]:
+        if line.strip() == "":
+            break
+        parts = line.split("|")
+        try:
+            year = int(parts[5].strip()) if parts[5].strip().isdigit() else 0
+        except IndexError:
+            year = 0
+        rows.append((year, line))
+
+    # Sort rows by year (descending)
+    sorted_rows = sorted(rows, key=lambda x: -x[0])
+    sorted_lines = [r[1] for r in sorted_rows]
+
+    # Rebuild README content
+    new_lines = (
+        lines[:header_idx]
+        + [table_header, separator]
+        + sorted_lines
+        + lines[header_idx + 2 + len(rows):]
+    )
+
+    with open(readme_path, "w") as f:
+        f.writelines(new_lines)
 
 
 def delete_paper(title, papers_folder="papers", readme_path="README.md"):
@@ -206,6 +249,7 @@ def main():
     ensure_readme_structure()
     slug = create_paper_md(paper)
     status = add_to_readme(paper)
+    sort_readme_by_year()
     print(f"✅ {status.capitalize()}: {paper['title']}\n→ papers/{slug}.md")
 
 
