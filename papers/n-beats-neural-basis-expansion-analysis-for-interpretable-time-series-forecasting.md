@@ -4,7 +4,7 @@
 
 **Paper:** [arXiv](https://arxiv.org/pdf/1905.10437)
 
-## 🧠 Summary
+## ✏️ Summary
 Basis expansion is used to augment a set of features in order to model non-linear relationships, e.g. polynomial or Fourier basis. Here, the model is trained to find the best basis expansion method.
 
 **Input:** univariate time series.

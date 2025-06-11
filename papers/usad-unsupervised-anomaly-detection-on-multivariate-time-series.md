@@ -4,7 +4,7 @@
 
 **Paper:** [ACM Digital Library](https://dl.acm.org/doi/pdf/10.1145/3394486.3403392)
 
-## 🧠 Summary
+## ✏️ Summary
 Reconstruction-based unsupervised multivariate time series anomaly detection using AE and GAN.
 
 **Architecture:** Two autoencoders with the same encoder.

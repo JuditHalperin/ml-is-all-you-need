@@ -30,7 +30,7 @@ def get_source_name(url):
     if "dl" in hostname:
         return "ACM Digital Library"
     return hostname.replace("www.", "").split('.')[0].capitalize()
-    
+
 
 def create_paper_md(paper, folder="papers"):
     os.makedirs(folder, exist_ok=True)
@@ -42,7 +42,8 @@ def create_paper_md(paper, folder="papers"):
     if os.path.exists(filepath):
         with open(filepath, "r") as f:
             content = f.read()
-        match = re.search(r"## 🧠 Summary\s*\n(.+?)(?:\n## |\Z)", content, re.DOTALL)
+        match = re.search(
+            r"## ✏️ Summary\s*\n(.+?)(?:\n## |\Z)", content, re.DOTALL)
         if match:
             existing_summary = match.group(1).strip()
 
@@ -58,12 +59,14 @@ def create_paper_md(paper, folder="papers"):
         if paper['publisher']:
             f.write(f"**Published by:** {paper['publisher']}\n\n")
         if paper['source']:
-            f.write(f"**Paper:** [{get_source_name(paper['source'])}]({paper['source']})\n\n")
+            f.write(
+                f"**Paper:** [{get_source_name(paper['source'])}]({paper['source']})\n\n")
         if paper['code']:
-            f.write(f"**Code:** [{get_source_name(paper['code'])}]({paper['code']})\n\n")
+            f.write(
+                f"**Code:** [{get_source_name(paper['code'])}]({paper['code']})\n\n")
 
         # Summary section
-        f.write("## 🧠 Summary\n")
+        f.write("## ✏️ Summary\n")
         if existing_summary and "Add a brief summary here" not in existing_summary:
             f.write(existing_summary + "\n\n")
         else:
@@ -99,11 +102,14 @@ def add_to_readme(paper, readme_path="README.md"):
     row = "| [{0}](papers/{1}.md) | {2} | {3} | {4} | {5} | {6}\n".format(
         paper['title'],
         sanitize_filename(paper['title']),
-        f"[{get_source_name(paper['source'])}]({paper['source']})" if paper.get('source') else "-",
-        f"[{get_source_name(paper['code'])}]({paper['code']})" if paper.get('code') else "-",
+        f"[{get_source_name(paper['source'])}]({paper['source']})" if paper.get(
+            'source') else "-",
+        f"[{get_source_name(paper['code'])}]({paper['code']})" if paper.get(
+            'code') else "-",
         paper.get('publisher', "-") or "-",
         paper.get('year', "-") or "-",
-        ", ".join(f"`{t}`" for t in paper.get('topics', [])) if paper.get('topics') else "-"
+        ", ".join(f"`{t}`" for t in paper.get('topics', [])
+                  ) if paper.get('topics') else "-"
     )
 
     with open(readme_path, "r") as f:
@@ -219,15 +225,19 @@ def copy_image(image_path, title):
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Add or delete an ML paper summary entry.")
-    parser.add_argument("--title", '-t', required=True, help="Title of the paper")
+    parser = argparse.ArgumentParser(
+        description="Add or delete an ML paper summary entry.")
+    parser.add_argument("--title", '-t', required=True,
+                        help="Title of the paper")
     parser.add_argument("--year", '-y', type=int, help="Year of publication")
     parser.add_argument("--source", '-s', help="URL to the paper")
     parser.add_argument("--code", '-c', help="URL to the code repo")
-    parser.add_argument("--publisher", '-p', help="Company or university that published the paper")
+    parser.add_argument("--publisher", '-p',
+                        help="Company or university that published the paper")
     parser.add_argument("--topics", '-l', nargs='*', help="List of topics")
     parser.add_argument("--image", '-i', help="Path to figure")
-    parser.add_argument("--delete", '-d', action="store_true", help="Delete the paper by title")
+    parser.add_argument("--delete", '-d', action="store_true",
+                        help="Delete the paper by title")
 
     args = parser.parse_args()
 
@@ -237,7 +247,7 @@ def main():
 
     if args.image:
         copy_image(args.image.strip(), args.title.strip())
-        
+
     paper = {
         "title": args.title.strip(),
         "source": args.source.strip() if args.source else "",
