@@ -23,12 +23,13 @@ def get_source_name(url):
     hostname = urlparse(url).hostname or ""
     if "arxiv" in hostname:
         return "arXiv"
-    elif "github" in hostname:
+    if "github" in hostname:
         return "GitHub"
-    elif "paperswithcode" in hostname:
+    if "paperswithcode" in hostname:
         return "PapersWithCode"
-    else:
-        return hostname.replace("www.", "").split('.')[0].capitalize()
+    if "dl" in hostname:
+        return "ACM Digital Library"
+    return hostname.replace("www.", "").split('.')[0].capitalize()
     
 
 def create_paper_md(paper, folder="papers"):
