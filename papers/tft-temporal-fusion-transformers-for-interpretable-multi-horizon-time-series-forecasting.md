@@ -17,4 +17,4 @@
 ![Figure](../figures/tft-temporal-fusion-transformers-for-interpretable-multi-horizon-time-series-forecasting.png)
 
 ## 🏷️ Topics
-`Covariates`, `Static`
+`Covariates`, `Probabilistic`, `Static`
