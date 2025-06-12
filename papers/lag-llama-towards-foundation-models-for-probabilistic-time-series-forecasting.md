@@ -22,4 +22,4 @@ Foundation model for univariate probabilistic time series forecasting using a de
 ![Figure](../figures/lag-llama-towards-foundation-models-for-probabilistic-time-series-forecasting.png)
 
 ## 🏷️ Topics
-`FM`, `Covariates`
+`Covariates`, `FM`

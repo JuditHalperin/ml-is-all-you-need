@@ -76,9 +76,10 @@ def create_paper_md(paper, folder="papers"):
         if image_path and (not existing_summary or "![Figure]" not in existing_summary):
             f.write(f"![Figure]({image_path})\n\n")
 
-        f.write("## 🏷️ Topics\n")
-        f.write(", ".join(f"`{t}`" for t in paper['topics']))
-        f.write("\n")
+        if paper['topics']:
+            f.write("## 🏷️ Topics\n")
+            f.write(", ".join(f"`{t}`" for t in paper['topics']))
+            f.write("\n")
 
     return slug
 
@@ -254,7 +255,7 @@ def main():
         "code": args.code.strip() if args.code else "",
         "publisher": args.publisher.strip() if args.publisher else "",
         "year": args.year if args.year else None,
-        "topics": args.topics if args.topics else []
+        "topics": sorted(args.topics) if args.topics else []
     }
 
     ensure_readme_structure()
