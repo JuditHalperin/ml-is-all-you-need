@@ -24,5 +24,7 @@ The model consists of three main components:
 
 Forecasts over multiple lead times are produced by recursively feeding the model’s outputs as inputs for the next step. The model is trained with a MAE loss, weighted across variables.
 
+![Figure](../figures/aurora-a-foundation-model-for-the-earth-system.png)
+
 ## 🏷️ Topics
 `FM`
