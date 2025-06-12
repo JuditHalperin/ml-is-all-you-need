@@ -14,6 +14,3 @@ Basis expansion is used to augment a set of features in order to model non-linea
 The basis expansion is either learnable (*generic*) or constrained (*interpretable*), e.g. expressing the trend or seasonality component.
 
 ![Figure](../figures/n-beats-neural-basis-expansion-analysis-for-interpretable-time-series-forecasting.png)
-
-## 🏷️ Topics
-

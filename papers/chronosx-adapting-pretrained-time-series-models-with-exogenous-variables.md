@@ -14,4 +14,4 @@ ChronosX integrates external covariates into powerful pretrained time series for
 ![Figure](../figures/chronosx-adapting-pretrained-time-series-models-with-exogenous-variables.png)
 
 ## 🏷️ Topics
-`FM`, `LLM`, `Covariates`
+`Covariates`, `FM`, `LLM`
