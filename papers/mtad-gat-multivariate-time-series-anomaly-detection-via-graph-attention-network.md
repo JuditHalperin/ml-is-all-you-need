@@ -18,12 +18,8 @@
 - Forecasting-based model to predict the value at next timestamp using FC, and reconstruction-based model to capture data distribution of entire time-series using VAE.
 
 **Inference:**
-Per-feature score based on forecasting prediction and reconstruction probability.
+Anomalies are detected by high prediction/reconstruction errors, as if the model fails to reconstruct the current input or to forecast the next step, the data point is likely anomalous.
 
-**Highlights:**
-
-- Spectral Residual is used to clean training data
-- Both feature-oriented and time-oriented graph attention layers
 
 ![Figure](../figures/mtad-gat-multivariate-time-series-anomaly-detection-via-graph-attention-network.png)
 
