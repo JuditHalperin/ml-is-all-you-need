@@ -12,4 +12,4 @@ Motivated by recent advances in LLMs, TimesFM is a time-series forecasting found
 ![Figure](../figures/timesfm-a-decoder-only-foundation-model-for-time-series-forecasting.png)
 
 ## 🏷️ Topics
-`FM`
+`FM`, `Patching`
