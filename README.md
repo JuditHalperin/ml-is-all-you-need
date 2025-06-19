@@ -2,9 +2,7 @@
 
 Keeping up with the flood of new time series machine learning papers - and struggling to remember the key ideas?
 
-This repo provides few-sentence summaries of trending ML papers mostly focused on time series forecasting, foundation models, and anomaly detection. Each summary highlights the core technical aspects such as architectures, preprocessing, learning objectives, and what makes the method unique.
-
-We skip over dataset descriptions (spoiler: everyone uses ETT) and result sections (surprise: everyone's state-of-the-art). Instead, the focus is on the technical details and design choices that actually matter.
+This repo provides few-sentence summaries of trending ML papers mostly focused on time series forecasting, foundation models and anomaly detection. We skip over dataset descriptions (spoiler: everyone uses ETT) and result sections (surprise: everyone's state-of-the-art). Instead, the focus is on the core technical details and design choices that actually matter: architecture, preprocessing, learning objective, and what makes the method unique.
 
 ## 📚 Paper Index
 
