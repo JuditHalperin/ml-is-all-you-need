@@ -27,4 +27,4 @@ Forecasts over multiple lead times are produced by recursively feeding the model
 ![Figure](../figures/aurora-a-foundation-model-for-the-earth-system.png)
 
 ## 🏷️ Topics
-`FM`
+`FM`, `Patching`
