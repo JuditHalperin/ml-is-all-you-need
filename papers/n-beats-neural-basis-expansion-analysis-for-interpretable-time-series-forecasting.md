@@ -2,15 +2,28 @@
 
 **Year:** 2020
 
+**Published by:** Element AI
+
 **Paper:** [arXiv](https://arxiv.org/pdf/1905.10437)
 
+**Code:** [GitHub](https://github.com/ServiceNow/N-BEATS)
+
 ## ✏️ Summary
-Basis expansion is used to augment a set of features in order to model non-linear relationships, e.g. polynomial or Fourier basis. Here, the model is trained to find the best basis expansion method.
+Task: univariate times series forecasting
 
-**Input:** univariate time series.
+**Basis functions:** Either learnable or problem-specific constrained. The constrained option enables interpretability, e.g., explicitly modeling trend or seasonality components.
 
-**Architecture:** A *block* consists of 4 fully-connected layers. It finds *theta* (expansion coefficients), performs *g* (basis expansion), and produces *forecast* (future) and *backcast* (history). Each *block* gets the residuals coming from the previous one, i.e. only the information that was not captured previously. A *stack* combines together different *blocks*, and outputs a partial prediction. The combination of all *stacks* results in the final forecast.
+**Block:** FC layers that predicts two sets of expansion coefficients, which are fed into two basis functions to generate Backcast (input approximation) and Forecast (future prediction).
 
-The basis expansion is either learnable (*generic*) or constrained (*interpretable*), e.g. expressing the trend or seasonality component.
+**Stack:** Multiple blocks with two residual branches:
+
+1. Backcast residual: Each block removes its backcast from the input, allowing subsequent blocks to focus on components not yet captured (e.g. removing trend before processing seasonality).
+
+2. Forecast accumulation: Each block adds its forecast to the previous ones, yielding interpretable partial outputs (e.g. partial forecasts of trend and seasonality).
+
+**Global model:** multiple stacks, with partial forecasts aggregated in a hierarchical manner.
 
 ![Figure](../figures/n-beats-neural-basis-expansion-analysis-for-interpretable-time-series-forecasting.png)
+
+## 🏷️ Topics
+`Interpretable`
