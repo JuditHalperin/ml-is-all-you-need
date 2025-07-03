@@ -19,7 +19,7 @@ def sanitize_filename(title):
 
 def get_source_name(url):
     if not url:
-        return "-"
+        return " "
     hostname = urlparse(url).hostname or ""
     if "arxiv" in hostname:
         return "arXiv"
@@ -104,13 +104,13 @@ def add_to_readme(paper, readme_path="README.md"):
         paper['title'],
         sanitize_filename(paper['title']),
         f"[{get_source_name(paper['source'])}]({paper['source']})" if paper.get(
-            'source') else "-",
+            'source') else " ",
         f"[{get_source_name(paper['code'])}]({paper['code']})" if paper.get(
-            'code') else "-",
-        paper.get('publisher', "-") or "-",
-        paper.get('year', "-") or "-",
+            'code') else " ",
+        paper.get('publisher', " ") or " ",
+        paper.get('year', " ") or " ",
         ", ".join(f"`{t}`" for t in paper.get('topics', [])
-                  ) if paper.get('topics') else "-"
+                  ) if paper.get('topics') else " "
     )
 
     with open(readme_path, "r") as f:
