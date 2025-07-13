@@ -16,4 +16,4 @@ Interestingly, in different domains, different experts are used across layers.
 ![Figure](../figures/time-moe-billion-scale-time-series-foundation-models-with-mixture-of-experts.png)
 
 ## 🏷️ Topics
-`FM`, `MoE`
+`FM`, `MoE`, `Multi-Horizon`

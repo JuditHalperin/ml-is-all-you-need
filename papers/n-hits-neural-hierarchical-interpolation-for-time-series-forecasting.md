@@ -18,4 +18,4 @@ A long-horizon forecasting model based on [N-BEATS](../papers/n-beats-neural-bas
 ![Figure](../figures/n-hits-neural-hierarchical-interpolation-for-time-series-forecasting.png)
 
 ## 🏷️ Topics
-`Interpretable`
+`Interpretable`, `Multi-Horizon`
