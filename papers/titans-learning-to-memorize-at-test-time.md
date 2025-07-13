@@ -32,4 +32,4 @@
 ![Figure](../figures/titans-learning-to-memorize-at-test-time.png)
 
 ## 🏷️ Topics
-`FM`, `Static`
+`FM`, `Memory`, `Static`
