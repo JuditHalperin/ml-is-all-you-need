@@ -6,6 +6,7 @@ This repo provides few-sentence summaries of trending ML papers mostly focused o
 
 | Title | Paper | Code | Publisher | Year | Topics |
 |-------|-------|------|-----------|------|--------|
+| [Learning without training: The implicit dynamics of in-context learning](papers/learning-without-training-the-implicit-dynamics-of-in-context-learning.md) | [arXiv](https://arxiv.org/pdf/2507.16003) |   | Google | 2025 | `Context`, `LLM`
 | [TiRex: Zero-Shot Forecasting Across Long and Short Horizons with Enhanced In-Context Learning](papers/tirex-zero-shot-forecasting-across-long-and-short-horizons-with-enhanced-in-context-learning.md) | [arXiv](https://arxiv.org/pdf/2505.23719) | [GitHub](https://github.com/NX-AI/tirex) |   | 2025 | `FM`, `Patching`, `Probabilistic`
 | [Time-MoE: Billion-Scale Time Series Foundation Models with Mixture of Experts](papers/time-moe-billion-scale-time-series-foundation-models-with-mixture-of-experts.md) | [arXiv](https://arxiv.org/pdf/2409.16040) | [GitHub](https://github.com/Time-MoE/Time-MoE) |   | 2025 | `FM`, `MoE`, `Multi-Horizon`
 | [Aurora: A foundation model for the Earth system](papers/aurora-a-foundation-model-for-the-earth-system.md) | [Nature](https://www.nature.com/articles/s41586-025-09005-y) | [GitHub](https://github.com/microsoft/aurora) | Microsoft | 2025 | `FM`, `Patching`
