@@ -9,7 +9,7 @@
 **Code:** [GitHub](https://github.com/SalesforceAIResearch/uni2ts)
 
 ## ✏️ Summary
-Challenges for time series foundation models include handling variations in (1) sampling frequency, (2) number of features, and (3) distributional properties across domains. MOIRAI answers them.
+Challenges for time series foundation models include handling variations in (1) sampling frequency, (2) number of features, and (3) distributional properties across domains. MOIRAI addresses all of them.
 
 **Architecture**
 
