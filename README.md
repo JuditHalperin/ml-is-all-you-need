@@ -29,3 +29,4 @@ This repo provides few-sentence summaries of trending ML papers mostly focused o
 | [N-BEATS: Neural Basis Expansion Analysis for Interpretable Time Series Forecasting](papers/n-beats-neural-basis-expansion-analysis-for-interpretable-time-series-forecasting.md) | [arXiv](https://arxiv.org/pdf/1905.10437) | [GitHub](https://github.com/ServiceNow/N-BEATS) | Element AI | 2020 | `Interpretable`
 | [USAD: UnSupervised Anomaly Detection on Multivariate Time Series](papers/usad-unsupervised-anomaly-detection-on-multivariate-time-series.md) | [ACM Digital Library](https://dl.acm.org/doi/pdf/10.1145/3394486.3403392) |   |   | 2020 | `Anomaly`
 | [MTAD-GAT: Multivariate Time-series Anomaly Detection via Graph Attention Network](papers/mtad-gat-multivariate-time-series-anomaly-detection-via-graph-attention-network.md) | [arXiv](https://arxiv.org/pdf/2009.02040.pdf) | [GitHub](https://github.com/ML4ITS/mtad-gat-pytorch) |   | 2020 | `Anomaly`
+
