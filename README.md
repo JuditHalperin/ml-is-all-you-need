@@ -6,6 +6,7 @@ This repo provides few-sentence summaries of trending ML papers mostly focused o
 
 | Title | Paper | Code | Publisher | Year | Topics |
 |-------|-------|------|-----------|------|--------|
+| [Chronos-2: From Univariate to Universal Forecasting](papers/chronos-2-from-univariate-to-universal-forecasting.md) | [arXiv](https://arxiv.org/pdf/2510.15821) | [GitHub](https://github.com/amazon-science/chronos-forecasting) | Amazon | 2025 | `Covariates`, `FM`, `Patching`, `Probabilistic`
 | [Energy-Based Transformers are Scalable Learners and Thinkers](papers/energy-based-transformers-are-scalable-learners-and-thinkers.md) | [arXiv](https://arxiv.org/pdf/2507.02092) | [GitHub](https://github.com/alexiglad/ebt) |   | 2025 | `Energy`
 | [Learning without training: The implicit dynamics of in-context learning](papers/learning-without-training-the-implicit-dynamics-of-in-context-learning.md) | [arXiv](https://arxiv.org/pdf/2507.16003) |   | Google | 2025 | `Context`, `LLM`
 | [TiRex: Zero-Shot Forecasting Across Long and Short Horizons with Enhanced In-Context Learning](papers/tirex-zero-shot-forecasting-across-long-and-short-horizons-with-enhanced-in-context-learning.md) | [arXiv](https://arxiv.org/pdf/2505.23719) | [GitHub](https://github.com/NX-AI/tirex) |   | 2025 | `FM`, `Patching`, `Probabilistic`
