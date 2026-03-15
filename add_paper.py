@@ -228,17 +228,14 @@ def copy_image(image_path, title):
 def main():
     parser = argparse.ArgumentParser(
         description="Add or delete an ML paper summary entry.")
-    parser.add_argument("--title", '-t', required=True,
-                        help="Title of the paper")
+    parser.add_argument("--title", '-t', required=True, help="Title of the paper")
     parser.add_argument("--year", '-y', type=int, help="Year of publication")
     parser.add_argument("--source", '-s', help="URL to the paper")
     parser.add_argument("--code", '-c', help="URL to the code repo")
-    parser.add_argument("--publisher", '-p',
-                        help="Company or university that published the paper")
+    parser.add_argument("--publisher", '-p', help="Company or university that published the paper")
     parser.add_argument("--topics", '-l', nargs='*', help="List of topics")
     parser.add_argument("--image", '-i', help="Path to figure")
-    parser.add_argument("--delete", '-d', action="store_true",
-                        help="Delete the paper by title")
+    parser.add_argument("--delete", '-d', action="store_true", help="Delete the paper by title")
 
     args = parser.parse_args()
 
