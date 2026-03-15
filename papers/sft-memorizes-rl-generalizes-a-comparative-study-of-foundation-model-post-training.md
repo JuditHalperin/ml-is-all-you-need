@@ -9,7 +9,6 @@
 **Code:** [GitHub](https://github.com/LeslieTrue/SFTvsRL)
 
 ## ✏️ Summary
-
 This paper studies the effect of post-training techniques - supervised fine-tuning (SFT) and reinforcement learning (RL) - on generalization and memorization, focusing on text-based and visual reasoning tasks.
 
 **Setup:** first, apply SFT to a pretrained model, then perform multi-step RL with sequential revision, where each step receives the outputs and verification signals (rewards) from all previous steps.
@@ -27,4 +26,4 @@ This paper studies the effect of post-training techniques - supervised fine-tuni
 ![Figure](../figures/sft-memorizes-rl-generalizes-a-comparative-study-of-foundation-model-post-training.png)
 
 ## 🏷️ Topics
-`CV`, `FM`, `LLM`
+`CV`, `FM`, `LLM`, `RL`
