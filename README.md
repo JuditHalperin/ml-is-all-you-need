@@ -6,6 +6,7 @@ This repo provides few-sentence summaries of trending ML papers mostly focused o
 
 | Title | Paper | Code | Publisher | Year | Topics |
 |-------|-------|------|-----------|------|--------|
+| [Diffusion LLMs are Natural Adversaries for any LLM](papers/diffusion-llms-are-natural-adversaries-for-any-llm.md) | [arXiv](https://arxiv.org/pdf/2511.00203) | [GitHub](https://github.com/davecasp/llm-inpainting-attack) |   | 2025 | `Diffusion`, `LLM`
 | [SFT Memorizes, RL Generalizes: A Comparative Study of Foundation Model Post-training](papers/sft-memorizes-rl-generalizes-a-comparative-study-of-foundation-model-post-training.md) | [arXiv](https://arxiv.org/pdf/2501.17161) | [GitHub](https://github.com/LeslieTrue/SFTvsRL) | Google | 2025 | `CV`, `FM`, `LLM`, `RL`
 | [Chronos-2: From Univariate to Universal Forecasting](papers/chronos-2-from-univariate-to-universal-forecasting.md) | [arXiv](https://arxiv.org/pdf/2510.15821) | [GitHub](https://github.com/amazon-science/chronos-forecasting) | Amazon | 2025 | `Covariates`, `FM`, `Patching`, `Probabilistic`
 | [Energy-Based Transformers are Scalable Learners and Thinkers](papers/energy-based-transformers-are-scalable-learners-and-thinkers.md) | [arXiv](https://arxiv.org/pdf/2507.02092) | [GitHub](https://github.com/alexiglad/ebt) |   | 2025 | `Energy`
