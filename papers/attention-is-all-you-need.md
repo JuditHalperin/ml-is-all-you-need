@@ -13,17 +13,17 @@ RNNs capture long dependencies but are sequential, while CNNs are parallel but s
 
 **Architecture**
 
-* Scaled Dot-Product Attention: Multiplicative attention (faster than additive) with a scaling factor to prevent small gradients.
+* **Scaled Dot-Product Attention:** Multiplicative attention (faster than additive) with a scaling factor to prevent small gradients.
 
-* Multi-Head Attention: Multiple projections of queries/keys/values, parallel attention and concatenation, allowing the model to capture information from different representation subspaces.
+* **Multi-Head Attention:** Multiple projections of queries/keys/values, parallel attention and concatenation, allowing the model to capture information from different representation subspaces.
 
-* Encoder: Stack of layers with multi-head **self-attention** and FFN, with residual connections.
+* **Encoder:** Stack of layers with multi-head **self-attention** and FFN, with residual connections.
 
-* Decoder: Stack of layers with **masked** multi-head **self-attention**, encoder–decoder **attention** and FFN, with residual connections.
+* **Decoder:** Stack of layers with **masked** multi-head **self-attention**, encoder–decoder **attention** and FFN, with residual connections.
 
-* Embeddings and Softmax: Token representations and next-token probabilities.
+* **Embeddings and Softmax:** Token representations and next-token probabilities.
 
-* Positional Encoding: Order information in both encoder and decoder.
+* **Positional Encoding:** Order information in both encoder and decoder.
 
 **Advantages**
 
