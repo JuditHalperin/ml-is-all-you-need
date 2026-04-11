@@ -1,6 +1,6 @@
 # ML is All You Need
 
-This repo provides few-sentence summaries of trending ML papers mostly focused on time series forecasting, foundation models and anomaly detection. We skip over dataset descriptions (spoiler: everyone uses ETT) and result sections (surprise: everyone's state-of-the-art). Instead, the focus is on the core technical details auch as architecture, preprocessing, learning objective, and what makes the method unique.
+This repo provides few-sentence summaries of trending ML papers mostly focused on large language models, time series forecasting and anomaly detection. We skip over dataset descriptions and result sections (spoiler: everyone's state-of-the-art). Instead, the focus is on the core technical details auch as architecture, learning objective, and what makes the method unique.
 
 ## 📚 Paper Index
 
