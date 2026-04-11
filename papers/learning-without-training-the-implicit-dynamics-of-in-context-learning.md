@@ -36,4 +36,4 @@ ICL works like fine‑tuning in weight space, helping explain how neural network
 ![Figure](../figures/learning-without-training-the-implicit-dynamics-of-in-context-learning.png)
 
 ## 🏷️ Topics
-`Context`, `LLM`
+`ICL`, `LLM`
