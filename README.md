@@ -6,6 +6,7 @@ This repo provides few-sentence summaries of trending ML papers mostly focused o
 
 | Title | Paper | Code | Publisher | Year | Topics |
 |-------|-------|------|-----------|------|--------|
+| [Exclusive Self Attention](papers/exclusive-self-attention.md) | [arXiv](https://arxiv.org/pdf/2603.09078) |   | Apple | 2026 | `LLM`
 | [Where to show Demos in Your Prompt: A Positional Bias of In-Context Learning](papers/where-to-show-demos-in-your-prompt-a-positional-bias-of-in-context-learning.md) | [arXiv](https://arxiv.org/pdf/2507.22887) |   |   | 2025 | `ICL`, `LLM`
 | [TradingAgents: Multi-Agents LLM Financial Trading Framework](papers/tradingagents-multi-agents-llm-financial-trading-framework.md) | [arXiv](https://arxiv.org/pdf/2412.20138) | [GitHub](https://github.com/TauricResearch/TradingAgents) |   | 2025 | `Agent`, `LLM`
 | [Diffusion LLMs are Natural Adversaries for any LLM](papers/diffusion-llms-are-natural-adversaries-for-any-llm.md) | [arXiv](https://arxiv.org/pdf/2511.00203) | [GitHub](https://github.com/davecasp/llm-inpainting-attack) |   | 2025 | `Diffusion`, `LLM`
