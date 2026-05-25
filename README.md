@@ -6,7 +6,7 @@ This repo provides few-sentence summaries of trending ML papers mostly focused o
 
 | Title | Paper | Code | Publisher | Year | Topics |
 |-------|-------|------|-----------|------|--------|
-| [Why AI systems don't learn and what to do about it](papers/why-ai-systems-don-t-learn-and-what-to-do-about-it.md) | [arXiv](https://arxiv.org/pdf/2603.15381) |   | Meta | 2026 | `Agent`, `LLM`
+| [Why AI Systems Don't Learn and What To Do About It](papers/why-ai-systems-don-t-learn-and-what-to-do-about-it.md) | [arXiv](https://arxiv.org/pdf/2603.15381) |   | Meta | 2026 | `Agent`, `LLM`
 | [Exclusive Self Attention](papers/exclusive-self-attention.md) | [arXiv](https://arxiv.org/pdf/2603.09078) |   | Apple | 2026 | `LLM`
 | [Where to show Demos in Your Prompt: A Positional Bias of In-Context Learning](papers/where-to-show-demos-in-your-prompt-a-positional-bias-of-in-context-learning.md) | [arXiv](https://arxiv.org/pdf/2507.22887) |   |   | 2025 | `ICL`, `LLM`
 | [TradingAgents: Multi-Agents LLM Financial Trading Framework](papers/tradingagents-multi-agents-llm-financial-trading-framework.md) | [arXiv](https://arxiv.org/pdf/2412.20138) | [GitHub](https://github.com/TauricResearch/TradingAgents) |   | 2025 | `Agent`, `LLM`

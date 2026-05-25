@@ -1,4 +1,4 @@
-# Why AI systems don't learn and what to do about it
+# Why AI Systems Don't Learn and What To Do About It
 
 **Year:** 2026
 
@@ -7,7 +7,6 @@
 **Paper:** [arXiv](https://arxiv.org/pdf/2603.15381)
 
 ## ✏️ Summary
-
 Current AI depends heavily on humans for learning, while truly autonomous AI should continuously learn and adapt from its own experience after deployment.
 
 Real intelligence needs two core learning modes:
